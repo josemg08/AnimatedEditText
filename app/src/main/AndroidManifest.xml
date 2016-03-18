@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.alimuzaffar.lib.widgets">
+    package="com.alimuzaffar.sample.widgets">
 
     <application
         android:allowBackup="true"

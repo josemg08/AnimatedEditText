@@ -1,12 +1,12 @@
-package com.alimuzaffar.lib.widgets;
+package com.alimuzaffar.sample.widgets;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import alimuzaffar.com.lib.widgets.PinEntryEditText;
-import alimuzaffar.com.lib.widgets.TextDrawable;
+import com.alimuzaffar.lib.widgets.PinEntryEditText;
+import com.alimuzaffar.lib.widgets.TextDrawable;
 
 public class AnimatedEditTextWidgetsActivity extends AppCompatActivity {
 

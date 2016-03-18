@@ -1,4 +1,4 @@
-package alimuzaffar.com.lib.widgets;
+package com.alimuzaffar.lib.widgets;
 
 import android.animation.Animator;
 import android.animation.AnimatorSet;
