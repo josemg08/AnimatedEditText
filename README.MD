@@ -1,6 +1,7 @@
 # AnimatedEditText for Android
 
-This is an EditText capable of performing 4 animation from transition in text as a users types.
+This repository contains `AnimatedEditText`, `PinEntryEditText` and `TextDrawable` all of which
+extend the behaviour of `EditText` and implement features that are otherwise not available.
 
 ## Features
 
@@ -9,38 +10,44 @@ This is an EditText capable of performing 4 animation from transition in text as
 - TextDrawable which allows you to set and use text as a drawable.
 - AnimatedEditText and PinEntryEditText let you specify any mask you want for the text.
 
-
 ## Usage
 
 ### How to include dependecy in gradle
 
+Below is a fast guide to getting started. However, if you need to read about these widgets in
+details. Read more about [AnimatedEditText](https://medium.com/@ali.muzaffar),
+[PinEntryEditText](https://medium.com/@ali.muzaffar/building-a-pinentryedittext-in-android-5f2eddcae5d3#.tka93qm3d),
+[TextDrawable](https://medium.com/@ali.muzaffar/textdrawable-to-display-emojis-and-unicode-characters-in-android-35614168b8ad#.21ukwskwr).
+
+Then simply add the following to your dependencies.
+
 `compile 'com.alimuzaffar.lib:animated-edit-text:0.0.1'`
 
-### Setup in XML
+### Setup AnimatedTextView and PinEntryView in your layout
 
         <com.alimuzaffar.lib.widgets.PinEntryEditText
             android:id="@+id/txt_pin_entry"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:cursorVisible="false"
+            android:cursorVisible="false" //recommended
             android:digits="1234567890"
             android:inputType="number"
-            android:maxLength="4"
-            android:textIsSelectable="false"
+            android:maxLength="4" //required
+            android:textIsSelectable="false" //recommended
             android:textSize="20sp"
-            android:visibility="visible"
+            app:pinAnimationType="popIn|fromBottom" //optional
 			app:pinCharacterMask="*" //optional
-            app:pinLineColors="@color/pin_line_colors" />
+            app:pinLineColors="@color/pin_line_colors" /> //optional
 
         <com.alimuzaffar.lib.widgets.AnimatedEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:hint="Animate pop in"
-            android:inputType="textNoSuggestions"
-            app:animationType="popIn" />
+            android:inputType="textNoSuggestions" //recommended when typing text to avoid autocomplete.
+            app:pinAnimationType="popIn|fromBottom|fromRight|fromMiddle" //optional
+            app:animationType="popIn" /> //optional
 
-### In Code:
+### Listen for pin entry and setup TextDrawable in code
 
         EditText regular = (EditText) findViewById(R.id.txt_regular);
         final PinEntryEditText pinEntry = (PinEntryEditText) findViewById(R.id.txt_pin_entry);
@@ -61,7 +68,7 @@ This is an EditText capable of performing 4 animation from transition in text as
         if (regular != null) {
             regular.setCompoundDrawables(new TextDrawable(regular, "+61 "), null, new TextDrawable(regular, "\u2605"), null);
         }
-			
+
 ## Supported Animations
 
 1. PopIn (default)
@@ -81,18 +88,20 @@ You can see a YouTube video of all the animations here: [YouTube video](https://
 
 ### In from right
 
-![animate in from right](http://i.giphy.com/Nzd38Q57CJ5zq.gif|alt=animate in from right)
+![animate in from right](http://i.giphy.com/Nzd38Q57CJ5zq.gif)
 
 ### In from middle
 
-![animate in from middle](http://i.giphy.com/8WKKm4nTM3N60.gif)nimate in from middle)
+![animate in from middle](http://i.giphy.com/8WKKm4nTM3N60.gif)
 
 
 ## Known limitations
 
+- Animations are only triggered when adding to the end of the string. This is why autocomplete doesn't work as it technically replaces the whole word.
 - Animation will work best if `android:inputType="textNoSuggestions"` is set.
 - Only `android:gravity="left|right|center_horizontal"` is supported.
 - No RTL language support.
 - Animate in from middle doesn't work properly except from `android:gravity="left"`
 - Not all features of EditText will work
 - PinEntryView will only perform bottom up or pop-in animations.
+- Using some Unicode characters as masks causes the cursor to lose position. If this happens, I recommend setting cursor visibility to false or setting textPassword or numberPassword as the input type for the fields which improves the situation but doesn't really solve it in all cases.
