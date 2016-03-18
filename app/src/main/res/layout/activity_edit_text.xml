@@ -16,7 +16,7 @@
         android:padding="@dimen/activity_horizontal_margin"
         tools:context=".activity.EditTextWidgetsActivity">
 
-        <alimuzaffar.com.lib.widgets.PinEntryEditText
+        <com.alimuzaffar.lib.widgets.PinEntryEditText
             android:id="@+id/txt_pin_entry"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -29,7 +29,7 @@
             android:visibility="visible"
             app:pinLineColors="@color/pin_line_colors" />
 
-        <alimuzaffar.com.lib.widgets.AnimatedEditText
+        <com.alimuzaffar.lib.widgets.AnimatedEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -37,7 +37,7 @@
             android:inputType="textNoSuggestions"
             app:animationType="popIn" />
 
-        <alimuzaffar.com.lib.widgets.AnimatedEditText
+        <com.alimuzaffar.lib.widgets.AnimatedEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -45,7 +45,7 @@
             android:inputType="textNoSuggestions"
             app:animationType="fromBottom" />
 
-        <alimuzaffar.com.lib.widgets.AnimatedEditText
+        <com.alimuzaffar.lib.widgets.AnimatedEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -53,7 +53,7 @@
             android:inputType="textNoSuggestions"
             app:animationType="fromRight" />
 
-        <alimuzaffar.com.lib.widgets.AnimatedEditText
+        <com.alimuzaffar.lib.widgets.AnimatedEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"

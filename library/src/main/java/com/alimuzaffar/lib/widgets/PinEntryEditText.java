@@ -13,6 +13,8 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.os.Build;
 import android.support.v4.content.ContextCompat;
+import android.text.InputType;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.ActionMode;
@@ -160,6 +162,17 @@ public class PinEntryEditText extends EditText {
             }
         });
 
+        //If input type is password and no mask is set, use a default mask
+        if ((getInputType() & InputType.TYPE_TEXT_VARIATION_PASSWORD) == InputType.TYPE_TEXT_VARIATION_PASSWORD && TextUtils.isEmpty(mMask)) {
+            mMask = "\u25CF";
+        } else if ((getInputType() & InputType.TYPE_NUMBER_VARIATION_PASSWORD) == InputType.TYPE_NUMBER_VARIATION_PASSWORD && TextUtils.isEmpty(mMask)) {
+            mMask = "\u25CF";
+        }
+
+        if (!TextUtils.isEmpty(mMask)) {
+            mMaskChars = getMaskChars();
+        }
+
     }
 
     @Override
@@ -200,15 +213,10 @@ public class PinEntryEditText extends EditText {
     @Override
     protected void onDraw(Canvas canvas) {
         //super.onDraw(canvas);
-        CharSequence text = null;
-        if (mMask == null) {
-            text = getText();
-        } else {
-            text = getMaskChars();
-        }
+        CharSequence text = getFullText();
         int textLength = text.length();
         float[] textWidths = new float[textLength];
-        getPaint().getTextWidths(getText(), 0, textLength, textWidths);
+        getPaint().getTextWidths(text, 0, textLength, textWidths);
 
         for (int i = 0; i < mNumChars; i++) {
             if (textLength > i) {
@@ -224,7 +232,15 @@ public class PinEntryEditText extends EditText {
         }
     }
 
-    private String getMaskChars() {
+    private CharSequence getFullText() {
+        if (mMask == null) {
+            return getText();
+        } else {
+            return getMaskChars();
+        }
+    }
+
+    private StringBuilder getMaskChars() {
         if (mMaskChars == null) {
             mMaskChars = new StringBuilder();
         }
@@ -236,7 +252,7 @@ public class PinEntryEditText extends EditText {
                 mMaskChars.deleteCharAt(mMaskChars.length() - 1);
             }
         }
-        return mMaskChars.toString();
+        return mMaskChars;
     }
 
 

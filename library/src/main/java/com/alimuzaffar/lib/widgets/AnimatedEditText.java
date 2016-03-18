@@ -87,7 +87,7 @@ public class AnimatedEditText extends AppCompatEditText {
         }
 
         if (!TextUtils.isEmpty(mMask)) {
-            mMaskChars = new StringBuilder();
+            mMaskChars = getMaskChars();
         }
     }
 
@@ -182,11 +182,11 @@ public class AnimatedEditText extends AppCompatEditText {
         canvas.drawText(getFullText(), mStart, mEnd, startXAnim + mRightOffset, getLineBounds(0, null) + mBottomOffset, mAnimPaint);
     }
 
-    private String getFullText() {
+    private CharSequence getFullText() {
         if (TextUtils.isEmpty(mMask)) {
-            return getText().toString();
+            return getText();
         } else {
-            return TextUtils.substring(getMaskChars(), 0, getText().length());
+            return getMaskChars();
         }
     }
 

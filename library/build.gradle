@@ -3,7 +3,7 @@ ext {
     bintrayRepo = 'customwidgets'
     bintrayName = 'AnimatedEditText'
 
-    publishedGroupId = 'com.alimuzaffar.lib.widgets'
+    publishedGroupId = 'com.alimuzaffar.lib'
     libraryName = 'AnimatedEditText'
     artifact = 'animated-edit-text'
 
