@@ -12,7 +12,11 @@ This is an EditText capable of performing 4 animation from transition in text as
 
 ## Usage
 
-Setup in XML
+### How to include dependecy in gradle
+
+`compile 'com.alimuzaffar.lib:animated-edit-text:0.0.1'`
+
+### Setup in XML
 
         <com.alimuzaffar.lib.widgets.PinEntryEditText
             android:id="@+id/txt_pin_entry"
@@ -36,7 +40,7 @@ Setup in XML
             android:inputType="textNoSuggestions"
             app:animationType="popIn" />
 
-In Code
+### In Code:
 
         EditText regular = (EditText) findViewById(R.id.txt_regular);
         final PinEntryEditText pinEntry = (PinEntryEditText) findViewById(R.id.txt_pin_entry);

@@ -40,8 +40,8 @@ public class TextDrawable extends Drawable implements TextWatcher {
     /**
      * Create a TextDrawable using the given paint object and string
      *
-     * @param paint
-     * @param s
+     * @param paint paint object
+     * @param s the string
      */
     public TextDrawable(Paint paint, String s) {
         mText = s;
@@ -205,10 +205,10 @@ public class TextDrawable extends Drawable implements TextWatcher {
 
     /**
      * Make the TextDrawable match the width of the View it's associated with.
-     * <p/>
+     *
      * Note: While this option will not work if bindToViewPaint is true.
      *
-     * @param fitText
+     * @param fitText whether to auto resize the text.
      */
     public void setFillText(boolean fitText) {
         mFitTextEnabled = fitText;
