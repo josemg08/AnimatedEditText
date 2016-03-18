@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clipChildren="false"
+    android:clipToPadding="false">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:orientation="vertical"
+        android:padding="@dimen/activity_horizontal_margin"
+        tools:context=".activity.EditTextWidgetsActivity">
+
+        <alimuzaffar.com.lib.widgets.PinEntryEditText
+            android:id="@+id/txt_pin_entry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:cursorVisible="false"
+            android:digits="1234567890"
+            android:inputType="number"
+            android:maxLength="4"
+            android:textIsSelectable="false"
+            android:textSize="20sp"
+            android:visibility="visible"
+            app:pinLineColors="@color/pin_line_colors" />
+
+        <alimuzaffar.com.lib.widgets.AnimatedEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="Animate pop in"
+            android:inputType="textNoSuggestions"
+            app:animationType="popIn" />
+
+        <alimuzaffar.com.lib.widgets.AnimatedEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="Animate bottom up"
+            android:inputType="textNoSuggestions"
+            app:animationType="fromBottom" />
+
+        <alimuzaffar.com.lib.widgets.AnimatedEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="Animate right to left"
+            android:inputType="textNoSuggestions"
+            app:animationType="fromRight" />
+
+        <alimuzaffar.com.lib.widgets.AnimatedEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="Animate middle up"
+            android:inputType="textNoSuggestions"
+            app:animationType="fromMiddle" />
+
+        <EditText
+            android:id="@+id/txt_regular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="Regular EditText" />
+
+    </LinearLayout>
+</ScrollView>
