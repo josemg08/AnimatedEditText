@@ -1,3 +1,18 @@
+/**
+ * Copyright 2016 Ali Muzaffar
+ * <p/>
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * <p/>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p/>
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.alimuzaffar.lib.widgets;
 
 import android.animation.AnimatorSet;
@@ -17,8 +32,6 @@ import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.OvershootInterpolator;
-
-import org.w3c.dom.Text;
 
 /**
  * An EditText field that can animate the typed text.
@@ -121,6 +134,10 @@ public class AnimatedEditText extends AppCompatEditText {
             mPaint.setTypeface(Typeface.MONOSPACE);
             mAnimPaint.setTypeface(Typeface.MONOSPACE);
         }
+        if (mOriginalTextColors != null) {
+            mPaint.setColor(mOriginalTextColors.getDefaultColor());
+            mAnimPaint.setColor(mOriginalTextColors.getDefaultColor());
+        }
         setTextColor(Color.TRANSPARENT);
     }
 
@@ -131,11 +148,13 @@ public class AnimatedEditText extends AppCompatEditText {
             return;
         }
 
+        updateColorsForState();
+
         if ((getGravity() & Gravity.RIGHT) == Gravity.RIGHT) {
             drawGravityRight(canvas);
         } else if ((getGravity() & Gravity.LEFT) == Gravity.LEFT) {
             drawGravityLeft(canvas);
-        }else {
+        } else {
             drawGravityCenterHorizontal(canvas);
         }
     }
@@ -176,10 +195,24 @@ public class AnimatedEditText extends AppCompatEditText {
         float animCharWidth = mPaint.measureText(animChar);
         float fullTexWidth = fixedTextWidth + animCharWidth;
 
-        float startX = getWidth()/2 - fullTexWidth/2;
-        float startXAnim = getWidth()/2 + fullTexWidth/2 - animCharWidth;
+        float startX = getWidth() / 2 - fullTexWidth / 2;
+        float startXAnim = getWidth() / 2 + fullTexWidth / 2 - animCharWidth;
         canvas.drawText(fixedText, startX, getLineBounds(0, null), mPaint);
         canvas.drawText(getFullText(), mStart, mEnd, startXAnim + mRightOffset, getLineBounds(0, null) + mBottomOffset, mAnimPaint);
+    }
+
+    private void updateColorsForState() {
+        if (mOriginalTextColors == null) {
+            return;
+        }
+        int[] states = {
+                isEnabled() ? android.R.attr.state_enabled : -android.R.attr.state_enabled,
+                isFocused() ? android.R.attr.state_focused : -android.R.attr.state_focused,
+                isSelected() ? android.R.attr.state_selected : -android.R.attr.state_selected,
+        };
+        int color = mOriginalTextColors.getColorForState(states, mOriginalTextColors.getDefaultColor());
+        mPaint.setColor(color);
+        mAnimPaint.setColor(color);
     }
 
     private CharSequence getFullText() {

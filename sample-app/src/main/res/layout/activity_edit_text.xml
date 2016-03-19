@@ -35,6 +35,8 @@
             android:layout_marginTop="16dp"
             android:hint="Animate pop in"
             android:inputType="textNoSuggestions"
+            android:gravity="left"
+            android:textColor="@color/text_colors"
             app:animationType="popIn" />
 
         <com.alimuzaffar.lib.widgets.AnimatedEditText
