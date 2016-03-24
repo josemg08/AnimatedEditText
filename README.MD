@@ -22,7 +22,7 @@ details. Read more about [AnimatedEditText](https://medium.com/@ali.muzaffar),
 Then simply add the following to your dependencies.
 
 ``` dependencies{
-`compile 'com.alimuzaffar.lib:animated-edit-text:0.0.3'`
+`compile 'com.alimuzaffar.lib:animated-edit-text:0.0.4'`
 }
 ```
 
