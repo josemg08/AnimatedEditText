@@ -1,10 +1,11 @@
 # AnimatedEditText for Android
 
-This repository contains `AnimatedEditText`, `PinEntryEditText` and `TextDrawable` all of which
+This repository contains `AnimatedEditText` and `TextDrawable` all of which
 extend the behaviour of `EditText` and implement features that are otherwise not available.
 
+**NOTE:** [`PinEntryEditText` has been moved to it's own repo on GitHub](https://github.com/alphamu/PrefixEditText).
+
 ![pop in animation](http://i.giphy.com/x1AsZJypT6rmw.gif) 
-<img src="https://cdn-images-1.medium.com/max/1600/1*7nANWyJGpoQhlXu7zGL-AA.png" width="400" align="right" alt="PinEntryEditText and AnimatedEditText">
 
 ## Features
 
@@ -18,8 +19,7 @@ extend the behaviour of `EditText` and implement features that are otherwise not
 
 ### PinEntryEditText
 
-- PinEntryEditText which supports animations.
-- Lets you specify any character to be used as a mask for input.
+[PinEntryEditText has been moved to it's own repo on GitHub](https://github.com/alphamu/PrefixEditText).
 
 ### Others
 
@@ -38,7 +38,7 @@ details. Read more about [AnimatedEditText](https://medium.com/@ali.muzaffar),
 ### Gradle
 
     dependencies {
-        compile 'com.alimuzaffar.lib:animated-edit-text:0.0.9'
+        compile 'com.alimuzaffar.lib:animated-edit-text:1.0'
     }
 
 ## STEP-2
@@ -54,89 +54,17 @@ details. Read more about [AnimatedEditText](https://medium.com/@ali.muzaffar),
     app:animationType="popIn|fromBottom|fromRight|fromMiddle|none" //Optional, default popIn
     app:animateCursor="true|false" //Optional, default true
     app:animateTextClear="true|false" /> //Optional, default true
-
-<com.alimuzaffar.lib.widgets.PinEntryEditText
-    android:id="@+id/txt_pin_entry"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:cursorVisible="false" //recommended
-    android:digits="1234567890"
-    android:inputType="number"
-    android:maxLength="4" //required
-    android:textIsSelectable="false" //recommended
-    android:textSize="20sp"
-    app:pinBackgroundDrawable="@drawable/bg_pin" //optional, use your own pin char background
-    app:pinAnimationType="popIn|fromBottom|none" //optional, default popIn
-	app:pinCharacterMask="*" //optional, default bullet
-	app:pinTextBottomPadding="@dimen/space" //optional, space between character and bottom line.
-	app:pinLineStroke="2dp" //the stroke (height) of the bottom line by default.
-	app:pinLineStrokeSelected="4dp" //the stroke (height) of the bottom line when field is focused.
-	app:pinBackgroundIsSquare="true|false" //optional, if you want the background drawable to be a square or circle width of each digit will be set to match the height of the widget.
-    app:pinLineColors="@color/pin_line_colors" /> //optional
 ```
 
-### Listen for pin entry and setup TextDrawable in code
+### Use in your code
 
+Use in your code like you would use a regular EditText
 ```java
-EditText regular = (EditText) findViewById(R.id.txt_regular);
-final PinEntryEditText pinEntry = (PinEntryEditText) findViewById(R.id.txt_pin_entry);
-if (pinEntry != null) {
-    pinEntry.setAnimateText(true); //needed, no animation by default for PinEntryEditText
-    pinEntry.setOnPinEnteredListener(new PinEntryEditText.OnPinEnteredListener() {
-        @Override
-        public void onPinEntered(CharSequence str) {
-            if (str.toString().equals("1234")) {
-                Toast.makeText(AnimatedEditTextWidgetsActivity.this, "SUCCESS", Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(AnimatedEditTextWidgetsActivity.this, "FAIL", Toast.LENGTH_SHORT).show();
-                pinEntry.setText(null);
-            }
-        }
-    });
-}
+EditText regular = (AnimatedEditText) findViewById(R.id.txt_regular);
 if (regular != null) {
-    regular.setCompoundDrawables(new TextDrawable(regular, "+61 "), null, new TextDrawable(regular, "\u2605"), null);
+    String input = regular.getText().toString();
 }
 ```
-
-## Use your own Drawable as a pin character background
-
-You can use your own drawable for the pin entry background by specifying the `app:pinBackgroundDrawable`
-attribute in the xml. If you want to specify the empty and filled states using your background drawable
-you can set the `textColor` to transparent and setup your drawable as follows:
-
-```xml
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- Space contains text -->
-    <item android:state_focused="true" android:state_checked="true">
-        <shape android:shape="rectangle">
-            <solid android:color="@android:color/holo_green_light"/>
-        </shape>
-    </item>
-    <!--Space is the next space for character input -->
-    <item android:state_focused="true" android:state_selected="true">
-        <shape android:shape="rectangle">
-            <solid android:color="@android:color/holo_blue_bright"/>
-        </shape>
-    </item>
-    <!-- PinEntryEditText is focused -->
-    <item android:state_focused="true">
-        <shape android:shape="rectangle">
-            <solid android:color="@android:color/white"/>
-        </shape>
-    </item>
-    <!-- PinEntryEditText is not focused -->
-    <item>
-        <shape android:shape="rectangle">
-            <solid android:color="@android:color/darker_gray"/>
-        </shape>
-    </item>
-</selector>
-```
-
-Note that in this setup, the size of the drawable will be determined by the `textSize` and and the `pinTextBottomPadding`
-which is the space between the character and the line below (or the bottom of the `pinBackgroundDrawable`).
-For good measure, set `pinAnimationType` to none as well.
 
 ## Effects :
 
@@ -175,7 +103,6 @@ You can see a YouTube video of all the animations here: [YouTube video](https://
 - No RTL language support.
 - Animate in from middle doesn't work properly except from `android:gravity="left"`
 - Not all features of EditText will work
-- PinEntryView will only perform bottom up or pop-in animations.
 - Using some Unicode characters as masks causes the cursor to lose position. If this happens, I recommend setting cursor visibility to false or setting textPassword or numberPassword as the input type for the fields which improves the situation but doesn't really solve it in all cases.
 
 License

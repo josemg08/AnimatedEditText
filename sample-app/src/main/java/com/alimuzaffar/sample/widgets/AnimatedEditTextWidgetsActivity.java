@@ -8,14 +8,13 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.alimuzaffar.lib.widgets.AnimatedEditText;
-import com.alimuzaffar.lib.widgets.PinEntryEditText;
 import com.alimuzaffar.lib.widgets.TextDrawable;
 
 public class AnimatedEditTextWidgetsActivity extends AppCompatActivity {
-    AnimatedEditText mTxtPopIn;
-    AnimatedEditText mTxtBottomUp;
-    AnimatedEditText mTxtRightIn;
-    AnimatedEditText mTxtMiddleUp;
+    private AnimatedEditText mTxtPopIn;
+    private AnimatedEditText mTxtBottomUp;
+    private AnimatedEditText mTxtRightIn;
+    private AnimatedEditText mTxtMiddleUp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,49 +26,6 @@ public class AnimatedEditTextWidgetsActivity extends AppCompatActivity {
         mTxtMiddleUp = (AnimatedEditText) findViewById(R.id.txt_middle_up);
 
         EditText regular = (EditText) findViewById(R.id.txt_regular);
-        final PinEntryEditText pinEntry = (PinEntryEditText) findViewById(R.id.txt_pin_entry);
-        if (pinEntry != null) {
-            pinEntry.setAnimateText(true);
-            pinEntry.setOnPinEnteredListener(new PinEntryEditText.OnPinEnteredListener() {
-                @Override
-                public void onPinEntered(CharSequence str) {
-                    if (str.toString().equals("1234")) {
-                        Toast.makeText(AnimatedEditTextWidgetsActivity.this, "SUCCESS", Toast.LENGTH_SHORT).show();
-                    } else {
-                        pinEntry.setError(true);
-                        Toast.makeText(AnimatedEditTextWidgetsActivity.this, "FAIL", Toast.LENGTH_SHORT).show();
-                        pinEntry.postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                pinEntry.setText(null);
-                            }
-                        }, 1000);
-                    }
-                }
-            });
-        }
-
-        final PinEntryEditText pinEntry2 = (PinEntryEditText) findViewById(R.id.txt_pin_entry2);
-        if (pinEntry2 != null) {
-            pinEntry2.setAnimateText(true);
-            pinEntry2.setOnPinEnteredListener(new PinEntryEditText.OnPinEnteredListener() {
-                @Override
-                public void onPinEntered(CharSequence str) {
-                    if (str.toString().equals("1234")) {
-                        Toast.makeText(AnimatedEditTextWidgetsActivity.this, "SUCCESS", Toast.LENGTH_SHORT).show();
-                    } else {
-                        pinEntry2.setError(true);
-                        Toast.makeText(AnimatedEditTextWidgetsActivity.this, "FAIL", Toast.LENGTH_SHORT).show();
-                        pinEntry2.postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                pinEntry2.setText(null);
-                            }
-                        }, 1000);
-                    }
-                }
-            });
-        }
 
         if (regular != null) {
             regular.setCompoundDrawables(new TextDrawable(regular, "+61 "), null, new TextDrawable(regular, "\u2605"), null);
