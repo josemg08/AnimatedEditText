@@ -1,3 +1,8 @@
+[![Build Status](https://travis-ci.org/alphamu/AnimatedEditText.svg?branch=master)](https://travis-ci.org/alphamu/AnimatedEditText) 
+[![Download](https://api.bintray.com/packages/alphamu/customwidgets/AnimatedEditText/images/download.svg)](https://bintray.com/alphamu/customwidgets/AnimatedEditText/_latestVersion)
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-AnimatedEditText-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/3304) 
+
+
 # AnimatedEditText for Android
 
 This repository contains `AnimatedEditText` and `TextDrawable` all of which
