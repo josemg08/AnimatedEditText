@@ -43,7 +43,7 @@ details. Read more about [AnimatedEditText](https://medium.com/@ali.muzaffar),
 ### Gradle
 
     dependencies {
-        compile 'com.alimuzaffar.lib:animated-edit-text:1.0'
+        compile 'com.alimuzaffar.lib:animated-edit-text:1.1'
     }
 
 ## STEP-2
