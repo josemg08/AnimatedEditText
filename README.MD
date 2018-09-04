@@ -1,5 +1,5 @@
 [![Build Status](https://api.travis-ci.org/alphamu/AnimatedEditText.svg?branch=master)](https://travis-ci.org/alphamu/AnimatedEditText) 
-[![Download](https://api.bintray.com/packages/alphamu/customwidgets/AnimatedEditText/images/download.svg)](https://bintray.com/alphamu/customwidgets/AnimatedEditText/_latestVersion)
+[ ![Download](https://api.bintray.com/packages/alphamu/customwidgets/AnimatedEditText/images/download.svg?version=1.2) ](https://bintray.com/alphamu/customwidgets/AnimatedEditText/1.2/link)
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-AnimatedEditText-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/3304) 
 
 
