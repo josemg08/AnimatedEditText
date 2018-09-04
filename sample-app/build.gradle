@@ -2,14 +2,14 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 28
-    buildToolsVersion "27.0.3"
+    buildToolsVersion '28.0.2'
 
     defaultConfig {
         applicationId "com.alimuzaffar.sample.widgets"
         minSdkVersion 14
         targetSdkVersion 28
         versionCode 1
-        versionName "1.1"
+        versionName '1.2'
     }
     buildTypes {
         release {
@@ -25,6 +25,7 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar, *.aar'], dir: 'libs')
     testImplementation 'junit:junit:4.12'
-    implementation 'com.android.support:appcompat-v7:28.0.0-beta01'
+    implementation 'com.android.support:support-v4:28.0.0-rc02'
+    implementation 'com.android.support:appcompat-v7:28.0.0-rc02'
     implementation project(':animated-edit-text')
 }

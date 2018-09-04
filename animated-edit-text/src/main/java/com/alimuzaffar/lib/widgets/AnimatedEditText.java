@@ -28,8 +28,9 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.os.Build;
+import android.support.v4.text.TextUtilsCompat;
+import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.AppCompatEditText;
-import android.support.v7.widget.ViewUtils;
 import android.text.InputType;
 import android.text.TextUtils;
 import android.util.AttributeSet;
@@ -40,6 +41,7 @@ import android.view.animation.OvershootInterpolator;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Locale;
 
 /**
  * An EditText field that can animate the typed text.
@@ -118,8 +120,9 @@ public class AnimatedEditText extends AppCompatEditText {
             mMask = ta.getString(R.styleable.AnimatedEditText_textMask);
             mAnimatedClear = ta.getBoolean(R.styleable.AnimatedEditText_animateTextClear, mAnimatedClear);
             //Only allow animate cursor feature on API 16+
+            final boolean isLayoutRtl = TextUtilsCompat.getLayoutDirectionFromLocale(Locale.getDefault()) == ViewCompat.LAYOUT_DIRECTION_RTL;
             mAnimateCursor = ta.getBoolean(R.styleable.AnimatedEditText_animateCursor, mAnimateCursor);
-            mAnimateCursor = mAnimateCursor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN && !ViewUtils.isLayoutRtl(this);
+            mAnimateCursor = mAnimateCursor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN && !isLayoutRtl;
         } finally {
             ta.recycle();
         }
@@ -182,7 +185,8 @@ public class AnimatedEditText extends AppCompatEditText {
      */
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     public void setCursorAnimated(boolean animated) {
-        mAnimateCursor = animated && Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN && !ViewUtils.isLayoutRtl(this);
+        final boolean isLayoutRtl = TextUtilsCompat.getLayoutDirectionFromLocale(Locale.getDefault()) == ViewCompat.LAYOUT_DIRECTION_RTL;
+        mAnimateCursor = animated && Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN && !isLayoutRtl;
 
     }
 
