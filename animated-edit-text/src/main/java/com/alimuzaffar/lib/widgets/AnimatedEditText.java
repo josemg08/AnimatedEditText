@@ -28,9 +28,6 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.os.Build;
-import android.support.v4.text.TextUtilsCompat;
-import android.support.v4.view.ViewCompat;
-import android.support.v7.widget.AppCompatEditText;
 import android.text.InputType;
 import android.text.TextUtils;
 import android.util.AttributeSet;
@@ -42,6 +39,10 @@ import android.view.animation.OvershootInterpolator;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Locale;
+
+import androidx.appcompat.widget.AppCompatEditText;
+import androidx.core.text.TextUtilsCompat;
+import androidx.core.view.ViewCompat;
 
 /**
  * An EditText field that can animate the typed text.
