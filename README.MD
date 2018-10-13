@@ -51,7 +51,7 @@ If using **Jetpack** use version [![Download](https://api.bintray.com/packages/a
         }
     }
 
-If not using Jetpack use version 1.x [ ![Download](https://api.bintray.com/packages/alphamu/customwidgets/AnimatedEditText/images/download.svg?version=1.2.2) ](https://bintray.com/alphamu/customwidgets/AnimatedEditText/1.2.3/link)
+If not using Jetpack use version 1.x [ ![Download](https://api.bintray.com/packages/alphamu/customwidgets/AnimatedEditText/images/download.svg?version=1.2.3) ](https://bintray.com/alphamu/customwidgets/AnimatedEditText/1.2.3/link)
 
     dependencies {
         implementation ('com.alimuzaffar.lib:animated-edit-text:1.2.3') {
