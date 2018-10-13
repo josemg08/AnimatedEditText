@@ -1,5 +1,5 @@
 [![Build Status](https://api.travis-ci.org/alphamu/AnimatedEditText.svg?branch=master)](https://travis-ci.org/alphamu/AnimatedEditText) 
-[ ![Download](https://api.bintray.com/packages/alphamu/customwidgets/AnimatedEditText/images/download.svg?version=1.2.1) ](https://bintray.com/alphamu/customwidgets/AnimatedEditText/1.2.2/link)
+[ ![Download](https://api.bintray.com/packages/alphamu/customwidgets/AnimatedEditText/images/download.svg?version=1.2.3) ](https://bintray.com/alphamu/customwidgets/AnimatedEditText/1.2.2/link)
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-AnimatedEditText-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/3304) 
 
 
@@ -43,7 +43,7 @@ details. Read more about [AnimatedEditText](https://medium.com/@ali.muzaffar),
 ### Gradle
 
     dependencies {
-        compile ('com.alimuzaffar.lib:animated-edit-text:1.2.2') {
+        compile ('com.alimuzaffar.lib:animated-edit-text:1.2.3') {
             // exclude is only needed in you already include the
             // dependency below in your app.
             exclude group: 'com.android.support', module: 'appcompat-v7'
