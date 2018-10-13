@@ -1,4 +1,6 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+
 ext {
     bintrayRepo = 'customwidgets'
     bintrayName = 'AnimatedEditText'
@@ -12,7 +14,7 @@ ext {
     siteUrl = 'https://github.com/alphamu/AnimatedEditText'
     gitUrl = 'https://github.com/alphamu/AnimatedEditText.git'
 
-    libraryVersion = '2.0.1'
+    libraryVersion = '2.0.2'
 
     developerId = 'alphamu'
     developerName = 'Ali Muzaffar'
@@ -31,7 +33,7 @@ android {
         minSdkVersion 14
         targetSdkVersion 28
         versionCode 1
-        versionName '2.0.1'
+        versionName '2.0.2'
     }
     buildTypes {
         release {

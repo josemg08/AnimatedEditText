@@ -44,17 +44,17 @@ details. Read more about [AnimatedEditText](https://medium.com/@ali.muzaffar),
 If using **Jetpack** use version [![Download](https://api.bintray.com/packages/alphamu/customwidgets/AnimatedEditText/images/download.svg)](https://bintray.com/alphamu/customwidgets/AnimatedEditText/_latestVersion)
 
     dependencies {
-        implementation ('com.alimuzaffar.lib:animated-edit-text:2.0.1') {
+        implementation ('com.alimuzaffar.lib:animated-edit-text:2.0.2') {
             // Exclude is only needed if you already have the library
             // mentioned below as a dependency in your app
             exclude group: 'androidx.appcompat', module: 'appcompat'
         }
     }
 
-If not using Jetpack use version 1.x [ ![Download](https://api.bintray.com/packages/alphamu/customwidgets/AnimatedEditText/images/download.svg?version=1.2.2) ](https://bintray.com/alphamu/customwidgets/AnimatedEditText/1.2.2/link)
+If not using Jetpack use version 1.x [ ![Download](https://api.bintray.com/packages/alphamu/customwidgets/AnimatedEditText/images/download.svg?version=1.2.2) ](https://bintray.com/alphamu/customwidgets/AnimatedEditText/1.2.3/link)
 
     dependencies {
-        implementation ('com.alimuzaffar.lib:animated-edit-text:1.2.2') {
+        implementation ('com.alimuzaffar.lib:animated-edit-text:1.2.3') {
             // Exclude is only needed if you already have the library
             // mentioned below as a dependency in your app
             exclude group: 'com.android.support', module: 'appcompat-v7'
