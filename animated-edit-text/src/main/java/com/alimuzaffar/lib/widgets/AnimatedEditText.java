@@ -146,6 +146,8 @@ public class AnimatedEditText extends AppCompatEditText {
         int colorSelected = outValue.data;
         mCursorPaint.setColor(colorSelected);
         mCursorPaint.setStrokeWidth(context.getResources().getDisplayMetrics().density * 2);
+
+        setupPaint();
     }
 
     /**
@@ -189,12 +191,6 @@ public class AnimatedEditText extends AppCompatEditText {
         final boolean isLayoutRtl = TextUtilsCompat.getLayoutDirectionFromLocale(Locale.getDefault()) == ViewCompat.LAYOUT_DIRECTION_RTL;
         mAnimateCursor = animated && Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN && !isLayoutRtl;
 
-    }
-
-    @Override
-    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
-        super.onSizeChanged(w, h, oldw, oldh);
-        setupPaint();
     }
 
     private void setupPaint() {
@@ -684,3 +680,4 @@ public class AnimatedEditText extends AppCompatEditText {
         }
     }
 }
+//.___ End of AnimatedEditText __./

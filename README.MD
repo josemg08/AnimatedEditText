@@ -1,6 +1,9 @@
 [![Build Status](https://api.travis-ci.org/alphamu/AnimatedEditText.svg?branch=master)](https://travis-ci.org/alphamu/AnimatedEditText)
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-AnimatedEditText-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/3304) 
 
+## Fix
+
+I fixed an issue that made it so the text would disappear when set to wrap content.
 
 # AnimatedEditText for Android
 
